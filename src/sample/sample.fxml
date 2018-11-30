@@ -1,12 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.control.ButtonBar?>
-<?import java.net.URL?>
+<?import javafx.scene.control.ComboBox?>
+
 
 <GridPane fx:id="glavniProzor" fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" id="background">
     <stylesheets> <URL value="@izgled.css" /> </stylesheets>
@@ -19,9 +27,16 @@
         <RowConstraints vgrow="ALWAYS"/>
         <RowConstraints vgrow="ALWAYS"/>
         <RowConstraints vgrow="ALWAYS"/>
+        <RowConstraints vgrow="ALWAYS"/>
     </rowConstraints>
 
-    <GridPane fx:id="leftupperProzor" alignment="center" hgap="5"  vgap="5" GridPane.columnIndex="0" GridPane.rowIndex="0" >
+    <Label text="FORMULAR ZA STUDENTE" id="fancytext" textAlignment="CENTER" alignment="CENTER"  GridPane.columnSpan="2" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity" />
+
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <GridPane fx:id="leftupperProzor" alignment="center" hgap="5"  vgap="5" GridPane.columnIndex="0" GridPane.rowIndex="1" >
         <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" />
             <ColumnConstraints hgrow="ALWAYS" />
@@ -33,15 +48,18 @@
         </rowConstraints>
     <children>
     <Label text="Ime:"/>
-    <TextField GridPane.columnIndex="1" />
+    <TextField fx:id="imePolje" GridPane.columnIndex="1" />
     <Label text="Prezime:" GridPane.rowIndex="1"/>
-    <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <TextField fx:id="prezimePolje" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <Label text="Broj indexa:" GridPane.rowIndex="2"/>
-        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField fx:id="indexPolje" GridPane.columnIndex="1" GridPane.rowIndex="2" />
     </children>
+        <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+        </padding>
 </GridPane>
 
-    <GridPane fx:id="rightupperProzor" alignment="center" hgap="5"  vgap="5" GridPane.columnIndex="1" GridPane.rowIndex="0" >
+    <GridPane fx:id="rightupperProzor" alignment="center" hgap="5"  vgap="5" GridPane.columnIndex="1" GridPane.rowIndex="1" >
         <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" />
             <ColumnConstraints hgrow="ALWAYS" />
@@ -53,15 +71,28 @@
         </rowConstraints>
         <children>
             <Label text="JMBG:"/>
-            <TextField GridPane.columnIndex="1" />
+            <TextField fx:id="jmbgPolje" GridPane.columnIndex="1" />
             <Label text="Datum rodjenja:" GridPane.rowIndex="1"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="datumrodjPolje" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Mjesto rodjenja:" GridPane.rowIndex="2"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox fx:id="mjestorodjPolje" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:id="banjaLuka" fx:value="Banja Luka" />
+                        <String fx:id="mostar" fx:value="Mostar" />
+                        <String fx:id="sarajevo" fx:value="Sarajevo" />
+                        <String fx:id="tuzla" fx:value="Tuzla" />
+                        <String fx:id="zenica" fx:value="Zenica" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
         </children>
+        <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+        </padding>
     </GridPane>
 
-    <GridPane fx:id="leftlowerProzor" alignment="center" hgap="5"  vgap="5" GridPane.columnIndex="0" GridPane.rowIndex="1" >
+    <GridPane fx:id="leftlowerProzor" alignment="center" hgap="5"  vgap="5" GridPane.columnIndex="0" GridPane.rowIndex="2" >
         <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" />
             <ColumnConstraints hgrow="ALWAYS" />
@@ -73,15 +104,18 @@
         </rowConstraints>
         <children>
             <Label text="Kontakt adresa:"/>
-            <TextField GridPane.columnIndex="1" />
+            <TextField fx:id="kontaktadresaPolje" GridPane.columnIndex="1" />
             <Label text="Kontakt telefon:" GridPane.rowIndex="1"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="kontakttelefonPolje" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="E-mail adresa:" GridPane.rowIndex="2"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="emailPolje" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         </children>
+        <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+        </padding>
     </GridPane>
 
-    <GridPane fx:id="rightlowerProzor" alignment="center" hgap="5"  vgap="5" GridPane.columnIndex="1" GridPane.rowIndex="1" >
+    <GridPane fx:id="rightlowerProzor" alignment="center" hgap="5"  vgap="5" GridPane.columnIndex="1" GridPane.rowIndex="2" >
         <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" />
             <ColumnConstraints hgrow="ALWAYS" />
@@ -91,18 +125,54 @@
             <RowConstraints vgrow="ALWAYS" />
             <RowConstraints vgrow="ALWAYS" />
             <RowConstraints vgrow="ALWAYS" />
+            <RowConstraints vgrow="ALWAYS" />
         </rowConstraints>
         <children>
             <Label text="Odsjek:"/>
-            <TextField GridPane.columnIndex="1" />
+            <ChoiceBox fx:id="odsjekPolje" GridPane.columnIndex="1">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:id="AE" fx:value="AE" />
+                        <String fx:id="EE" fx:value="EE" />
+                        <String fx:id="RI" fx:value="RI" />
+                        <String fx:id="TK" fx:value="TK" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
             <Label text="Godina studija:" GridPane.rowIndex="1"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="E-mail adresa:" GridPane.rowIndex="2"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="godinastudijaPolje" GridPane.columnIndex="1" GridPane.rowIndex="1" >
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:id="prva" fx:value="prva" />
+                        <String fx:id="druga" fx:value="druga" />
+                        <String fx:id="treca" fx:value="treca" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+            <Label text="Ciklus studija:" GridPane.rowIndex="2"/>
+            <ChoiceBox fx:id="ciklusPolje" GridPane.columnIndex="1" GridPane.rowIndex="2" >
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:id="bachelorCiklus" fx:value="Bachelor" />
+                        <String fx:id="masterCiklus" fx:value="Master" />
+                        <String fx:id="doktorskiStudij" fx:value="Doktorski studij" />
+                        <String fx:id="strucniStudij" fx:value="Strucni studij" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+            <RadioButton text="Redovan" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+            <RadioButton text="Samofinansirajuci" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            <CheckBox text="Boracka kategorija" GridPane.rowIndex="4" />
         </children>
+        <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+        </padding>
     </GridPane>
 
     <children>
-        <Button id="prijavaBtn" onAction="#prijavaClick" mnemonicParsing="false" maxHeight="Infinity" maxWidth="Infinity" text="Prijava" GridPane.columnSpan="2" GridPane.rowSpan="2" GridPane.rowIndex="3"/>
+        <Button id="prijavaBtn" alignment="CENTER" onAction="#prijavaClick" mnemonicParsing="false" maxHeight="Infinity" maxWidth="Infinity" text="Prijava" GridPane.columnSpan="2"  GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
     </children>
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
 </GridPane>
