@@ -15,3 +15,15 @@
     -fx-stroke: black;
     -fx-stroke-width: 1;
 }
+
+.poljeIspravno {
+-fx-control-inner-background: green;
+}
+
+.poljeNijeIspravno {
+-fx-control-inner-background: red;
+}
+
+.poljeNeutralno {
+-fx-control-inner-background: white;
+}
