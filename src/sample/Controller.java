@@ -189,6 +189,7 @@ public class Controller {
 
         ToggleGroup pritsnutJedanGrupa = new ToggleGroup();
         redovanPolje.setToggleGroup( pritsnutJedanGrupa );
+        redovanPolje.setSelected(true);
         samofinancirajuciPolje.setToggleGroup( pritsnutJedanGrupa );
     }
 
