@@ -37,6 +37,7 @@ public class Controller {
     public CheckBox borackaPolje;
     public Button prijavaBtn;
     public boolean[] greska={false,false,false,false,false,false,false,false};
+    public GridPane posebnaPolja;
 
     @FXML
     public void initialize(){
